@@ -14,4 +14,13 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
       expose: %w[Authorization Uid]
   end
+
+  allow do
+    origins "https://dry-tor-79740.herokuapp.com"
+
+    resource "*",
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      expose: %w[Authorization Uid]
+  end
 end
