@@ -25,7 +25,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 
   allow do
-    origins "http://allcharts.site"
+    origins "http://www.allcharts.site"
 
     resource "*",
       headers: :any,
