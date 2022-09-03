@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'member/data', to: 'members#show'
   get 'posts/index/:symbol', to: 'posts#index'
+  post 'posts', to: 'posts#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
