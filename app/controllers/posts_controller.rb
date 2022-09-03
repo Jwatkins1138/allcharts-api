@@ -6,7 +6,7 @@ class PostsController < ApplicationController
         posts: posts.as_json(include: :user)
       }
     else 
-      posts = Post.includes(:user) 
+      posts = Post.includes(:user).order('created_at DESC') 
       render json: {
         posts: posts.as_json(include: :user)
       }
