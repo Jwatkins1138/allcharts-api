@@ -34,7 +34,7 @@ class ListsController < ApplicationController
     user = User.find(user_id.to_s)
   end
 
-  def post_params
+  def list_params
     params.permit(:name, :symbols)
   end
 end
