@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   
 
   def show
-    user = get_user_from_token.includes(:lists)
+    user = get_user_from_token
     render json: {
       message: "youre in",
       user: user.as_json(include: :lists)
@@ -17,6 +17,6 @@ class MembersController < ApplicationController
                   # Rails.application.credentials.devise[:jwt_secret_key]).first
                   ENV["SECRET_KEY_BASE"]).first
     user_id = jwt_payload['sub']
-    user = User.find(user_id.to_s)
+    user = User.find(user_id.to_s).includes(:lists)
   end
 end
