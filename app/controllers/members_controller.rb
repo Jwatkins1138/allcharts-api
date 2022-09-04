@@ -3,10 +3,10 @@ class MembersController < ApplicationController
   
 
   def show
-    user = get_user_from_token
+    user = get_user_from_token.includes(:lists)
     render json: {
       message: "youre in",
-      user: user
+      user: user.as_json(include: :lists)
     }
   end
 
