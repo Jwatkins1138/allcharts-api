@@ -17,6 +17,6 @@ class MembersController < ApplicationController
                   # Rails.application.credentials.devise[:jwt_secret_key]).first
                   ENV["SECRET_KEY_BASE"]).first
     user_id = jwt_payload['sub']
-    user = User.find(user_id.to_s).includes(:lists)
+    user = User.includes(:lists).find(user_id.to_s)
   end
 end
