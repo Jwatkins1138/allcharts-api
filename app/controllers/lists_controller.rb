@@ -26,7 +26,7 @@ class ListsController < ApplicationController
 
   def update
     list = List.find(params[:id])
-    list_params[:list][:symbols].each do |symbol|
+    params[:list][:symbols].each do |symbol|
       list.push(symbol)
     end
     if list.save
