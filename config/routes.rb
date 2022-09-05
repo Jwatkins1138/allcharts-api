@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'posts', to: 'posts#create'
   get 'lists/index', to: 'lists#index'
   post 'lists', to: 'lists#create'
+  patch 'lists/:id', to: 'lists#update'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

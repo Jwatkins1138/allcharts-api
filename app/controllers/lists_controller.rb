@@ -24,6 +24,16 @@ class ListsController < ApplicationController
     end
   end
 
+  def update
+    list = List.find(params[:id])
+    list.push(list_params[:symbols])
+    if list.save
+      render json: list
+    else
+      render json: list.errors
+    end
+  end
+
   private
 
   def get_user_from_token
