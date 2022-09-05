@@ -26,7 +26,7 @@ class ListsController < ApplicationController
 
   def update
     list = List.find(params[:id])
-    list.push(list_params[:symbols])
+    list.symbols += list_params[:symbols]
     if list.save
       render json: list
     else
