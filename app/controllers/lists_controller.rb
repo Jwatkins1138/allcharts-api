@@ -27,7 +27,7 @@ class ListsController < ApplicationController
   def update
     list = List.find(params[:id])
     params[:list][:symbols].each do |symbol|
-      list.push(symbol)
+      list.symbols.push(symbol)
     end
     if list.save
       render json: list
