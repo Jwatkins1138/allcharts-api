@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'lists/index', to: 'lists#index'
   post 'lists', to: 'lists#create'
   patch 'lists/:id', to: 'lists#update'
-  get 'tickers/:search', 'tickers#index'
+  get 'tickers/:search', to: 'tickers#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
