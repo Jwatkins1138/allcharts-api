@@ -38,7 +38,7 @@ class ListsController < ApplicationController
 
   def remove_item
     list = List.find(params[:id])
-    list.remove(params[:symbol])
+    list.symbols.remove(params[:symbol])
     if list.save
       render json: list
     else
