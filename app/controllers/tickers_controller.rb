@@ -5,9 +5,20 @@ class TickersController < ApplicationController
   end
 
   def page_index
-    start = params[:page].to_i * 50
-    finish = start + 50
-    tickers = Ticker.where("id > ? AND id < ?", start, finish)
+    if params[:letter]
+      tickers = []
+      start = params[:page].to_i * 50
+      finish = start + 50
+      Ticker.where("name LIKE ?", "#{params[:letter]}%").find_each.with_index do |entry, index|
+        if index >= start && index < finish
+          tickers.push(entry)
+        end
+      end
+    else
+      start = params[:page].to_i * 50
+      finish = start + 50
+      tickers = Ticker.where("id > ? AND id < ?", start, finish)
+    end
     render json: tickers
   end
 end
