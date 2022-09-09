@@ -36,6 +36,16 @@ class ListsController < ApplicationController
     end
   end
 
+  def remove_item
+    list = List.find(params[:id])
+    list.remove(params[:symbol])
+    if list.save
+      render json: list
+    else
+      render json: list.errors
+    end
+  end
+
   private
 
   def get_user_from_token

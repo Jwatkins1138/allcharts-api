@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'lists/index', to: 'lists#index'
   post 'lists', to: 'lists#create'
   patch 'lists/:id', to: 'lists#update'
+  patch 'lists_remove/:id/:symbol', to: 'lists#remove_item'
   get 'tickers/:search', to: 'tickers#index'
   get 'tickers_page/:page', to: 'tickers#page_index'
   get 'tickers_page/:page/:letter', to: 'tickers#page_index'
